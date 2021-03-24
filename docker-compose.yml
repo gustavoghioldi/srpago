@@ -1,0 +1,20 @@
+version: '3.6'
+
+services:
+  eve:
+    build: .
+    restart: unless-stopped
+    environment:
+      - MONGO_URI=mongodb://mongo/db
+      - SU_USERNAME=superuser
+      - SU_PASSWORD=password
+    ports:
+      - 3500:3500
+
+  mongo:
+    image: mongo:3.6
+    restart: unless-stopped
+    ports:
+      - 27018:27017
+    volumes:
+      - ./mongo:/data/db
