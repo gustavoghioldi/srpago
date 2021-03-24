@@ -15,7 +15,7 @@ OPLOG_NAME = 'apilog'
 
 DATE_FORMAT="%Y-%m-%dT%H:%M:%S" 
 
-MONGO_URI = os.getenv('MONGO_URI')
+MONGO_URI=os.environ.get('MONGO_URI')
 
 RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
 ITEM_METHODS = ['GET', 'PATCH', 'DELETE']
@@ -31,6 +31,7 @@ DOMAIN = {
         'cache_control': 'max-age=10,must-revalidate',
         'cache_expires': 10,
         'public_methods': ['GET'],
+        'public_item_methods': ['GET'],
         'schema': country.schema()
     },
     'accounts': {
@@ -44,20 +45,23 @@ DOMAIN = {
         'cache_control': 'max-age=10,must-revalidate',
         'cache_expires': 10,
         'schema': movie.schema(),
-        'public_methods': ['GET']
+        'public_methods': ['GET'],
+        'public_item_methods': ['GET'],
     },
     'cinemas': {
         'item_title':'cinema',
         'cache_control': 'max-age=10,must-revalidate',
         'cache_expires': 10,
         'schema': cinema.schema(),
-        'public_methods': ['GET']
+        'public_methods': ['GET'],
+        'public_item_methods': ['GET'],
     },
     'calendar': {
         'item_title':'calendar',
         'cache_control': 'max-age=10,must-revalidate',
         'cache_expires': 10,
         'schema': calendar.schema(),
-        'public_methods': ['GET']
+        'public_methods': ['GET'],
+        'public_item_methods': ['GET'],
     }
 }
