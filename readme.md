@@ -28,16 +28,19 @@ admin y super admin RW
 users RO
 
 - movies
+
 admin y super admin RW
 
 users RO
 
 - cinemas 
+
 admin y super admin RW
 
 users RO
 
 - calendar
+
 admin y super admin RW
 
 users RO
