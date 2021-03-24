@@ -22,6 +22,7 @@ def after_request(response):
     ''' logging all responses'''
     app.logger.info(response)
     return response
+
 app.on_fetched_resource_accounts += AccountHelper.hide_password
 app.on_fetched_item_accounts     += AccountHelper.hide_password
 app.on_update_accounts           += AccountHelper.add_ticket
@@ -31,4 +32,4 @@ if __name__ == "__main__":
     handler = logging.getLogger()
     app.logger.setLevel(logging.INFO)
     app.logger.addHandler(handler)
-    app.run(host='0.0.0.0', port=3600)
+    app.run(host='0.0.0.0', port=3500)
