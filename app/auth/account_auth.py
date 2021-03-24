@@ -12,13 +12,11 @@ class AccountAuth(BaseAuth):
         overwrite the method of BaseAuth
         this method allows only users to see its values ​​and all administrators
         '''
-        _value = False
         if method != 'POST':
-            if account is not None or password != account['password']:
-                pass
+            if account == None or password != account['password']:
+                return False
             if account and '_id' in account:
                 self.set_request_auth_value(account['username'])
-            _value =  True
+            return True
         else:
-            _value = True
-        return _value
+            return True

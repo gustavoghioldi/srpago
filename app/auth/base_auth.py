@@ -13,10 +13,9 @@ class BaseAuth(BasicAuth):
 
         accounts = current_app.data.driver.db['accounts']
         account = accounts.find_one({'username':username})
-        if not account:
-            return False
-        if 'admin' in account['roles'] and (account['password']==password):
-            return True
+        if account:
+            if 'admin' in account['roles'] and (account['password']==password):
+                return True
         return self.check_auth_resource(username, password, method, account)
     def check_auth_resource(self,username, password, method, account)->bool:
         ''' method for customs implements of auth'''
