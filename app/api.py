@@ -26,10 +26,9 @@ app.on_fetched_resource_accounts += AccountHelper.hide_password
 app.on_fetched_item_accounts     += AccountHelper.hide_password
 app.on_update_accounts           += AccountHelper.add_ticket
 app.on_pre_POST_accounts         += AccountHelper.verify_create_account
-app.on_pre_PATCH_accounts        += AccountHelper.verify_create_account
 
 if __name__ == "__main__":
     handler = logging.getLogger()
     app.logger.setLevel(logging.INFO)
     app.logger.addHandler(handler)
-    app.run(host='0.0.0.0', port=3500)
+    app.run(host='0.0.0.0', port=3600)
